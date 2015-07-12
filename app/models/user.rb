@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  validates_presence_of :first_name, :last_name, :trello_token, :trello_public_key
+
   def trello_connect
     thread = Thread.new { yield(trello_client) }
     response = thread.value
