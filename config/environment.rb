@@ -1,31 +1,23 @@
-require 'rubygems'
-require 'bundler/setup'
-
-require 'active_support/all'
-
-require 'sinatra'
-require 'sinatra/activerecord'
-
-require 'dotenv'
-Dotenv.load
-
-APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
-APP_NAME = APP_ROOT.basename.to_s
-
-configure do
-  set :root, APP_ROOT.to_path
-  set :server, :puma
-end
-
-configure :development, :test do
+configure :development do
+  require 'sqlite3'
   require 'pry-byebug'
+  require 'tux'
+  
+  ActiveRecord::Base.logger = Logger.new(STDOUT)
+
+  set :database, 'sqlite3:github_trello_dev.db'
+  set :show_exceptions, true
 end
 
-# Set up the database and models
-require APP_ROOT.join('config', 'database')
+configure :production do
+  db = URI.parse(ENV['DATABASE_URL'] || 'postgres:///localhost/github_trello')
 
-# Initialize!
-require APP_ROOT.join('config', 'initializer')
-
-# Load the router
-require APP_ROOT.join('app', 'router')
+  ActiveRecord::Base.establish_connection(
+    :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
+    :host     => db.host,
+    :username => db.user,
+    :password => db.password,
+    :database => db.path[1..-1],
+    :encoding => 'utf8'
+  )
+end

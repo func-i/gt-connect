@@ -7,13 +7,19 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'sinatra-activerecord'
 
-gem 'pg'
 gem 'dotenv'
 
 gem 'puma'
 gem 'tux'
 
-group :development, :test do
+gem 'ruby-trello'
+
+group :development do
+  gem 'sqlite3'
   gem 'pry-byebug'
   gem 'shotgun'
+end
+
+group :production do
+  gem 'pg'
 end

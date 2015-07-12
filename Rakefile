@@ -1,7 +1,8 @@
 require 'rake'
 require 'sinatra/activerecord/rake'
 require 'dotenv/tasks'
-require ::File.expand_path('../config/environment', __FILE__)
+
+require ::File.expand_path('../config/app', __FILE__)
 
 Rake::Task["db:create"].clear
 Rake::Task["db:drop"].clear
