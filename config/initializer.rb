@@ -1,0 +1,1 @@
+require APP_ROOT.join('config', 'initializers', 'trello')
