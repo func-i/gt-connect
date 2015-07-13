@@ -19,16 +19,14 @@ This small Sinatra app listens to webhooks from Github and takes appropriate act
 ### development
 
 * obtain ENV vars from admin (@naserca)
-
 * `bundle`
 * `rake db:create`
 * `rake db:migrate`
-
 * play with `tux`
 * run server with `shotgun` on a port of your choosing
 
 ### production
 
-* ask admin (@naserca) for Heroku access
+* ask admin for Heroku project access
 * `git remote add heroku git@heroku.com:funci-gt-connect.git`
 * `git push heroku master`
