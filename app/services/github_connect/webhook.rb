@@ -8,7 +8,7 @@ class GithubConnect::Webhook
   end
 
   def handle
-    send "handle_#@event_name}"
+    send "handle_#{@event_name}"
   end
 
   protected
