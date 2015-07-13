@@ -14,7 +14,7 @@ class GithubConnect::Webhook
   protected
 
   def handle_repository
-    name = @params[:repository][:name]
+    name = @params['repository']['name']
     TrelloConnect.create_board name, 'created via gt-connect'
   end
 
