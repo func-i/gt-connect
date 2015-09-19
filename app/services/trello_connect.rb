@@ -11,6 +11,7 @@ module TrelloConnect
     board = create_board! name
     board.lists.each &:close!
     create_default_lists! board.id
+    board
   end
 
   protected

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709155548) do
+ActiveRecord::Schema.define(version: 20150919203731) do
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.string   "trello_board_id"
+    t.string   "github_repo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
