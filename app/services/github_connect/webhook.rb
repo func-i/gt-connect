@@ -1,5 +1,7 @@
 class GithubConnect::Webhook
 
+  include TrelloConnect
+
   attr_reader :event_name
 
   def initialize(event_name, params)
@@ -14,8 +16,7 @@ class GithubConnect::Webhook
   protected
 
   def handle_repository
-    name = @params['repository']['name']
-    TrelloConnect.create_board name, 'created via gt-connect'
+    init_board! @params['repository']['name']
   end
 
 end
