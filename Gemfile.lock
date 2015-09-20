@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:jeremytregunna/ruby-trello.git
+  remote: git://github.com/jeremytregunna/ruby-trello.git
   revision: c23351bc444ca7c97cd7c7e7bebaef556c1380c6
   branch: c23351bc444ca7c97cd7c7e7bebaef556c1380c6
   specs:
