@@ -15,7 +15,7 @@ class GithubConnect::Webhook
 
   def handle_repository
     Project.create!(
-      name:           @params['repository']['name']
+      name:           @params['repository']['name'],
       github_repo_id: @params['repository']['id']
     )
   end
