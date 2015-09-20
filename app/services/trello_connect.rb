@@ -14,6 +14,12 @@ module TrelloConnect
     board
   end
 
+  def add_user_to_board!(opts)
+    user  = User.find_by! github_id: opts[:github_user_id]
+    board = find_board_from_github_repo_id opts[:github_repo_id]
+    board.add_member user.trello_member
+  end
+
   protected
 
   def create_board!(name)
@@ -31,6 +37,10 @@ module TrelloConnect
     DEFAULTS[:list_names].each_with_index do |name, index|
       Trello::List.create name: name, board_id: board_id, pos: (index + 1)
     end
+  end
+
+  def find_board_from_github_repo_id(github_repo_id)
+    Project.find_by(github_repo_id: github_repo_id).try :board
   end
 
 end

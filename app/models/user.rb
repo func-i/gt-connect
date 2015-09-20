@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
     return response
   end
 
+  def trello_member
+    Trello::Member.find trello_id
+  end
+
   protected
 
   def trello_client
