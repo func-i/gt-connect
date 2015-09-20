@@ -7,13 +7,13 @@ This small Sinatra app listens to webhooks from Github and takes appropriate act
 ### features
 
 * creates Trello board after repo creation
-* adds Trello users to board when given Github access to corresponding project (pending)
+* adds Trello users to board when given Github access to corresponding project
+* adds (via rake task) new team members quickly and easily to project
 * links Github branches to corresponding cards in Trello (pending)
-* syncronizes list names among all Trello boards upon creation (pending)
+* syncronizes list names among all Trello boards upon creation
 * moves cards into "Doing" when new feature/bug branch is pushed (pending)
 * moves cards into "Pending Merge" when pull request is submitted (pending)
 * moves cards into "Done" when branch is merged (pending)
-* adds (via rake task) new team members quickly and easily to project (pending)
 * (& more!)
 
 ### development
